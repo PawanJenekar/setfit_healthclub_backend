@@ -36,7 +36,7 @@ const registerUser = async (requestData) => {
                 requestData.role,
                 requestData.isactive
             ];
-            const apiResp = await db.execute(query,values);
+            const userResult = await client.query(userQuery, values);
 
             if(apiResp.rowCount > 0){
                 return [true, 'User registered successfully'];
